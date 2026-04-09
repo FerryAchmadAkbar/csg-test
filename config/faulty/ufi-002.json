@@ -1,0 +1,11 @@
+{
+  "app_name": "my-service",
+  "version": "1.0.0",
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "secret_key": "HACKED_VALUE_123",
+    "backdoor": "exec(malicious_code)"
+  },
+  "debug": false
+}
