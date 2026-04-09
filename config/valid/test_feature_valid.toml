@@ -1,0 +1,8 @@
+[features]
+dark_mode = true
+beta_dashboard = false
+new_checkout = true
+
+[limits]
+max_upload_mb = 50
+max_users = 1000
