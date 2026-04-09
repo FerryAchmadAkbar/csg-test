@@ -1,10 +1,5 @@
 {
-  "name": "config-validation-test",
+  "name": "config-validation-skripsi",
   "version": "1.0.0",
-  "scripts": {
-    "size": "size-limit"
-  },
-  "size-limit": [
-    { "path": "configs/valid/*.json", "limit": "5 KB" }
-  ]
+  "description": "Testing 4 tools validasi konfigurasi"
 }
