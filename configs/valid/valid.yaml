@@ -1,0 +1,38 @@
+app:
+  name: "my-application"
+  version: "1.2.0"
+  port: 8080
+  debug: false
+
+database:
+  host: "localhost"
+  port: 5432
+  name: "mydb"
+  pool_size: 10
+
+logging:
+  level: "INFO"
+  format: "json"
+{
+    "auth": {
+        "provider": "oauth2",
+        "timeout": 3600,
+        "max_retries": 3,
+        "allowed_domains": [
+            "example.com",
+            "test.com"
+        ]
+    },
+    "session": {
+        "secret_key": "placeholder",
+        "expires_in": 86400
+    }
+}
+[features]
+dark_mode = true
+beta_dashboard = false
+new_checkout = true
+
+[limits]
+max_upload_mb = 50
+max_users = 1000
