@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["app_name", "version", "database"],
+  "properties": {
+    "app_name": { "type": "string" },
+    "version": { "type": "string" },
+    "database": {
+      "type": "object",
+      "required": ["host", "port"],
+      "properties": {
+        "host": { "type": "string" },
+        "port": { "type": "integer" },
+        "max_connections": { "type": "integer" }
+      },
+      "additionalProperties": false
+    },
+    "debug": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}
