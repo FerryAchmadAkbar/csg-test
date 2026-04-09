@@ -1,0 +1,12 @@
+{
+  "app_name": "my-service",
+  "version": "1.0.0",
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "max_connections": 100
+  },
+  "debug": false,
+  "admin_bypass": true,
+  "secret_injection": "malicious_payload_here"
+}
