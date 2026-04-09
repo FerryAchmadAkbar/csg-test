@@ -1,12 +1,12 @@
 [
   {
-    "name": "Config: app.json",
-    "path": "configs/valid/app.json",
+    "name": "Config: app-normal.json",
+    "path": "configs/valid/app-normal.json",
     "limit": "5 KB"
   },
   {
-    "name": "Config: database.yaml",
-    "path": "configs/valid/database.yaml",
+    "name": "Config: ab-001.json (harusnya gagal)",
+    "path": "configs/faulty/ab-001.json",
     "limit": "5 KB"
   }
 ]
