@@ -1,0 +1,15 @@
+{
+    "auth": {
+        "provider": "oauth2",
+        "timeout": 3600,
+        "max_retries": 3,
+        "allowed_domains": [
+            "example.com",
+            "test.com"
+        ]
+    },
+    "session": {
+        "secret_key": "placeholder",
+        "expires_in": 86400
+    }
+}
