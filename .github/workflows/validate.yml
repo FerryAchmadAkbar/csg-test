@@ -1,1 +1,72 @@
+name: Config Validation Testing
 
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # ── TOOL 1: size-limit ──────────────────────────
+  test-size-limit:
+    name: "Tool 1: size-limit"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install -g size-limit @size-limit/file
+      - name: Jalankan size-limit
+        run: npx size-limit
+        continue-on-error: true
+
+  # ── TOOL 2: Checkov ─────────────────────────────
+  test-checkov:
+    name: "Tool 2: Checkov"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install checkov
+      - name: Jalankan Checkov
+        run: |
+          checkov -d configs/ \
+            --output json \
+            --output-file checkov-result.json || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: checkov-result
+          path: checkov-result.json
+
+  # ── TOOL 3: json-yaml-validate ──────────────────
+  test-json-yaml-validate:
+    name: "Tool 3: json-yaml-validate"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: GrantBirki/json-yaml-validate@v3
+        with:
+          json_schema: schema/config-schema.json
+          files: |
+            configs/valid/*.json
+            configs/faulty/*.json
+
+  # ── TOOL 4: Boeing Validator ────────────────────
+  test-boeing-validator:
+    name: "Tool 4: Boeing config-file-validator"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+      - name: Install Boeing validator
+        run: |
+          go install github.com/Boeing/config-file-validator/cmd/validator@latest
+      - name: Jalankan Boeing validator
+        run: |
+          validator -depth 3 configs/
+        continue-on-error: true
