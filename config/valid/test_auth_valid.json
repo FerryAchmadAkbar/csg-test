@@ -1,0 +1,10 @@
+{
+  "app_name": "auth-service",
+  "version": "1.0.0",
+  "database": {
+    "host": "auth-db.local",
+    "port": 5432,
+    "max_connections": 100
+  },
+  "debug": false
+}

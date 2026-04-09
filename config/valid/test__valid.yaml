@@ -1,0 +1,7 @@
+app_name: payment-service
+version: "1.2.0"
+database:
+  host: payment-db.local
+  port: 3306
+  max_connections: 200
+debug: false
