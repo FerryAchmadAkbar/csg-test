@@ -1,1 +1,12 @@
-
+[
+  {
+    "name": "Config: app.json",
+    "path": "configs/valid/app.json",
+    "limit": "5 KB"
+  },
+  {
+    "name": "Config: database.yaml",
+    "path": "configs/valid/database.yaml",
+    "limit": "5 KB"
+  }
+]
